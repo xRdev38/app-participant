@@ -1,9 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BaseComponent } from './components';
+import {
+  BaseComponent,
+  ContextMenuComponent,
+  ParticipantTableComponent,
+  ViewTitleComponent,
+  WorkPackagesTableComponent,
+} from './components';
+import { MaterialModule } from './material.module';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
-  declarations: [BaseComponent],
-  imports: [CommonModule],
+  declarations: [
+    BaseComponent,
+    ParticipantTableComponent,
+    ContextMenuComponent,
+    ViewTitleComponent,
+    WorkPackagesTableComponent,
+  ],
+  imports: [CommonModule, MaterialModule, MatPaginatorModule],
 })
 export class SharedModule {}

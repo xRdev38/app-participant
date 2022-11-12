@@ -1,0 +1,8 @@
+<ng-container *ngIf="viewTitle$ | async as viewTitle">
+  <h2 class="title-header">
+    <span>{{viewTitle}}</span>
+  </h2>
+</ng-container>
+<ng-container *ngIf="subtitle$ | async as subtitle">
+  <h3>{{subtitle}}</h3>
+</ng-container>
