@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { BaseComponent } from '../base.component';
 
@@ -13,22 +19,37 @@ export class ViewTitleComponent extends BaseComponent {
     this._viewTitle$.next(value);
   }
 
-  @Input() set subtitle(value: string) {
-    this._subtitle$.next(value);
-  }
-
   get viewTitle$(): Observable<string> {
     return this._viewTitle$.asObservable();
+  }
+
+  @Input() set subtitle(value: string) {
+    this._subtitle$.next(value);
   }
 
   get subtitle$(): Observable<string> {
     return this._subtitle$.asObservable();
   }
 
+  @Input() set btnAction(value: boolean) {
+    this._btnAction$.next(value);
+  }
+
+  get btnAction$(): Observable<boolean> {
+    return this._btnAction$.asObservable();
+  }
+
+  @Output() sendingParticipant = new EventEmitter<void>();
+
   private _viewTitle$ = new BehaviorSubject<string>('');
   private _subtitle$ = new BehaviorSubject<string>('');
+  private _btnAction$ = new BehaviorSubject<boolean>(false);
 
   constructor() {
     super();
+  }
+
+  addParticipant(): void {
+    this.sendingParticipant.emit();
   }
 }

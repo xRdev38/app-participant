@@ -1,3 +1,5 @@
+@use 'src/scss/base/variables' as vars;
+
 :host {
   display: block;
   width: 100%;
@@ -5,6 +7,9 @@
 
 table {
   width: 100%;
+}
+.mat-header-row {
+  background-color: vars.$light-grey;
 }
 
 .mat-column-actions {

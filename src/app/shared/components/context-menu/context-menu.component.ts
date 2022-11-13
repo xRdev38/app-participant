@@ -8,9 +8,9 @@ import { ContextMenuActionModel } from '../../models';
   styleUrls: ['./context-menu.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ContextMenuComponent extends BaseComponent {
-  @Input() actions!: ContextMenuActionModel<any>[];
-  @Input() actor: any;
+export class ContextMenuComponent<T> extends BaseComponent {
+  @Input() actions!: ContextMenuActionModel<T>[];
+  @Input() actor!: T;
 
   constructor() {
     super();

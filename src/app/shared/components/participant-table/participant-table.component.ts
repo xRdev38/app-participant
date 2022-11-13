@@ -28,6 +28,7 @@ export class ParticipantTableComponent extends BaseComponent {
   }
 
   @Input() actions!: ContextMenuActionModel<Participant>[];
+  @Input() hasPagination: boolean = true;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -39,12 +40,20 @@ export class ParticipantTableComponent extends BaseComponent {
     'name',
     'company',
     'status',
-    'roles',
+    'role',
     'actions',
   ];
 
   constructor() {
     super();
+
+    this.onInit$.pipe(takeUntil(this.onDestroy$)).subscribe({
+      next: () => {
+        if (!this.actions) {
+          this.displayedColumns.pop();
+        }
+      },
+    });
 
     this.onAfterViewInit$.pipe(takeUntil(this.onDestroy$)).subscribe({
       next: () => {

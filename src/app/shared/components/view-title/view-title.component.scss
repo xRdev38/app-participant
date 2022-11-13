@@ -1,9 +1,17 @@
+@use 'src/scss/base/variables' as vars;
 :host {
-  display: block;
+  display: flex;
   width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: vars.$light-grey;
 }
 
 .title-header {
+  margin: 0;
+  padding: 0.825rem 0 0.825rem 1rem;
   display: flex;
   align-items: center;
+  font-weight: 400;
+  text-transform: uppercase;
 }

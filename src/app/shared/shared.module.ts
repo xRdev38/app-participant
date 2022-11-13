@@ -19,5 +19,12 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     WorkPackagesTableComponent,
   ],
   imports: [CommonModule, MaterialModule, MatPaginatorModule],
+  exports: [
+    BaseComponent,
+    ViewTitleComponent,
+    ParticipantTableComponent,
+    ContextMenuComponent,
+    WorkPackagesTableComponent,
+  ],
 })
 export class SharedModule {}
