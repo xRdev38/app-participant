@@ -9,6 +9,7 @@ import {
 } from './components';
 import { MaterialModule } from './material.module';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ViewTitleComponent,
     WorkPackagesTableComponent,
   ],
-  imports: [CommonModule, MaterialModule, MatPaginatorModule],
+  imports: [CommonModule, MaterialModule, MatPaginatorModule, MatDialogModule],
   exports: [
     BaseComponent,
     ViewTitleComponent,
