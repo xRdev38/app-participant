@@ -1,0 +1,15 @@
+<ng-container *ngIf="!isLoading; else hasData">
+  <ng-container *ngIf="owner$ | async as owner">
+    <app-attendees-container [attendees]="owner"></app-attendees-container>
+    <ng-container *ngIf="attendees$ | async as attendees">
+      <app-shared-attendees-container [projectId]="owner[0].projectId"
+                                      [attendees]="attendees">
+      </app-shared-attendees-container>
+    </ng-container>
+  </ng-container>
+</ng-container>
+<ng-template #hasData>
+...loading
+</ng-template>
+<router-outlet></router-outlet>
+

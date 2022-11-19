@@ -1,0 +1,13 @@
+<div class="shared-attendees-container">
+  <app-view-title (sendingParticipant)="openDialog()"
+                  [viewTitle]="viewTitle"
+                  [btnAction]="isActivatedBtnAction">
+  </app-view-title>
+  <ng-container *ngIf="attendees$ | async as attendees">
+    <app-participant-table
+      [actions]="actions"
+      [attendees]="attendees"
+      [hasPagination]="isActivitiesPageable">
+    </app-participant-table>
+  </ng-container>
+</div>

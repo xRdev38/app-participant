@@ -1,0 +1,13 @@
+<ng-template #formParticipantTemplate>
+  <p>Privilèges d'accès pour ce projet</p>
+  <app-form-participant [form]="formGroupParticipant"></app-form-participant>
+  <div class="actions-form">
+    <button (click)="closeDialog()" class="btn text-uppercase" mat-button color="primary">Annuler</button>
+    <button [disabled]="this.formGroupParticipant.invalid"
+            (click)="submitForm()"
+            class="btn text-uppercase"
+            mat-button color="primary">
+      Inviter
+    </button>
+  </div>
+</ng-template>

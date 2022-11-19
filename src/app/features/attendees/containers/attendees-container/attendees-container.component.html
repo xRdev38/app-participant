@@ -1,0 +1,9 @@
+<div class="attendees-container">
+  <app-view-title [viewTitle]="viewTitle"></app-view-title>
+  <ng-container *ngIf="attendees$ | async as attendees">
+    <app-participant-table
+      [attendees]="attendees"
+      [hasPagination]="isActivitiesPageable">
+    </app-participant-table>
+  </ng-container>
+</div>
